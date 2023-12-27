@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background: rgb(2,0,36);
+            /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,115,121,1) 35%, rgba(0,212,255,1) 100%); */
+            background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,245,252,1) 100%);
+        }
+        .container {
+            height: 100vh;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            -webkit-flex-direction: column; /* Safari */
+            flex-direction: column;
+            align-items: center;
+        }
+        .containerChild {
+            padding-top: 3%;
+        }
+        h1 {
+            margin-top: 10%;
+            margin-bottom: 7%;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 3.7rem;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+        .card {
+            background: rgba(255,255,255,.75);
+            padding-top: 1.5%;
+            padding-left: 2.5%;;
+            padding-right: 2.5%;
+            padding-bottom: 3%;
+            border-radius: 1rem;
+            font-size: 1.1rem;
+        }
+        form.card {
+            padding-top: 7%;
+            padding-left: 7%;
+        }
+        #btn-container {
+            display: flex;
+            display: -webkit-flex; /* Safari */
+            -webkit-flex-direction: row; /* Safari */
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-grow: 1;
+            margin-top: 6.2%;
+            min-width: 250px;
+            /* padding-right: 5.5%;*/
+            width: 100%;
+        }
+        .btn {
+            border-radius: 1rem;
+            background: #025473;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: .9rem;
+            font-weight: bold;
+            padding: 1rem 1.7rem;
+            margin-left: -7%;
+        }
+        .btn:hover {
+            position: relative;
+            left: -.2rem;
+            top: -.1rem;
+            background: rgb(52,94,110);
+            color: #eaf1f4;
+            font-size: 1rem;
+            padding: 1.1rem 2rem;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <main class="containerChild">
+            <header class="text-center">
+                <h1>Upload an image</h1>
+            </header>
+            <form method="post" enctype="multipart/form-data" class="card">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div id="btn-container">
+                    <button type="submit" class="btn btn-lg btn-info my-4">submit</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
